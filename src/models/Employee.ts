@@ -14,4 +14,4 @@ export type ApiGetEmployees = {
   employees: Employee[]
 }
 
-export type ApiGetEmplyee = EmployeeDetail
+export type ApiGetEmployee = EmployeeDetail
