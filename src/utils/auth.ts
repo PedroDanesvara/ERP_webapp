@@ -46,6 +46,8 @@ export const useAuth = () => {
 
       localStorage.setItem(LOCAL_STORAGE_KEY, response.data.access);
     }
+
+    return response;
   }
 
   const handleSingOut = () => {
