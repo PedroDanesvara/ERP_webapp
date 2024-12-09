@@ -12,7 +12,7 @@ export const AuthMiddleware = ({ children }: Props) => {
   const { isLogged } = useAuth();
 
   useEffect(() => {
-    if (!isLogged) navigate('/singin');
+    if (!isLogged) navigate('/signin');
   }, [])
 
   return (

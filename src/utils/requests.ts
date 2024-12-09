@@ -5,7 +5,7 @@ import { ApiGetGroup, ApiGetGroups } from "src/models/Group"
 import { ApiGetEmployee, ApiGetEmployees } from "src/models/Employee"
 import { ApiGetTask, ApiGetTasks } from "src/models/Task"
 
-const singIn = async ({ email, password }: {email: string, password: string}) => {
+const signIn = async ({ email, password }: {email: string, password: string}) => {
   const response = await useAPI<ApiSignIn>('auth/signin', 'POST', {email, password}, false)
 
   return response
@@ -114,7 +114,7 @@ const deleteTask = async (id: number) => {
 }
 
 export const userRequests = () => ({
-  singIn,
+  signIn,
   getUser,
   getPermissions,
   getGroups,

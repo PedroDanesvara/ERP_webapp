@@ -12,7 +12,7 @@ export const useAuth = () => {
 
   const dispatch = useDispatch();
 
-  const { singIn, getUser } = userRequests();
+  const { signIn, getUser } = userRequests();
 
   const user = {
     user: auth.user,
@@ -37,8 +37,8 @@ export const useAuth = () => {
     return auth.enterprise.permissions.some(p => p.codename === permissionCodename);
   }
 
-  const handleSingIn = async (email: string, password: string) => {
-    const response = await singIn({ email, password });
+  const handleSignIn = async (email: string, password: string) => {
+    const response = await signIn({ email, password });
 
     if (!response.detail) {
       dispatch(setUser(response.data.user));
@@ -60,7 +60,7 @@ export const useAuth = () => {
     isLogged: auth.user !== null,
     handleInitUser,
     handlePermissionExists,
-    handleSingIn,
+    handleSignIn,
     handleSingOut
   };
 };
