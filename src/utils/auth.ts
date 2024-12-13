@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./redux/store";
-import { userRequests } from "./requests";
+import { useRequests } from "./requests";
 import { setUser, setUserEnterprise } from "./redux/reducers/authReducer";
 
 const LOCAL_STORAGE_KEY = 'AUTH_ACCESS';
@@ -12,7 +12,7 @@ export const useAuth = () => {
 
   const dispatch = useDispatch();
 
-  const { signIn, getUser } = userRequests();
+  const { signIn, getUser } = useRequests();
 
   const user = {
     user: auth.user,

@@ -113,7 +113,7 @@ const deleteTask = async (id: number) => {
   return response
 }
 
-export const userRequests = () => ({
+export const useRequests = () => ({
   signIn,
   getUser,
   getPermissions,

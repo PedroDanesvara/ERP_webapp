@@ -5,7 +5,7 @@ import { useTheme } from "@mui/styles";
 import { useNavigate } from "react-router";
 import { GroupDetail } from "src/models/Group";
 import { useAuth } from "src/utils/auth";
-import { userRequests } from "src/utils/requests";
+import { useRequests } from "src/utils/requests";
 
 type Props = {
   groupsList: GroupDetail[];
@@ -15,7 +15,7 @@ type Props = {
 const GroupsTable = ({ groupsList, refreshList }: Props) => {
   const { handlePermissionExists } = useAuth();
 
-  const { deleteGroup } = userRequests();
+  const { deleteGroup } = useRequests();
 
   const theme = useTheme();
   const navigate = useNavigate();
