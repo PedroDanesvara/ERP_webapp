@@ -14,5 +14,5 @@ export type ApiGetGroups = {
 }
 
 export type ApiGetGroup = {
-  groups: GroupDetail
+  group: GroupDetail
 }
