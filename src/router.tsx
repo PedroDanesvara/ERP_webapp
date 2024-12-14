@@ -24,6 +24,7 @@ const EditGroup = Loader(lazy(() => import('src/content/pages/Groups/Edit')));
 
 // Employees
 const Employees = Loader(lazy(() => import('src/content/pages/Employees/Employees')));
+const AddEmployee = Loader(lazy(() => import('src/content/pages/Employees/Add')));
 
 // Pages
 
@@ -121,6 +122,10 @@ const routes: RouteObject[] = [
           {
             path: 'employees',
             element: <Employees />
+          },
+          {
+            path: 'employees-add',
+            element: <AddEmployee />
           }
         ]
       },
