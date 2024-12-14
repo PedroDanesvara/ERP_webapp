@@ -59,7 +59,7 @@ const getEmployees = async () => {
   return response     
 }
 
-const getAnEmployees = async (id: number) => {
+const getAnEmployee = async (id: number) => {
   const response = await useAPI<ApiGetEmployee>(`companies/employees/${id}`)
 
   return response     
@@ -71,8 +71,8 @@ const addEmployee = async ({name, email, password}: {name: string, email: string
   return response
 }
 
-const editEmployee = async (id: number, {name, email, password}: {name: string, email: string, password: string}) => {
-  const response = await useAPI(`companies/employees/${id}`, 'PUT', { name, email, password })
+const editEmployee = async (id: number, {name, email, groups}: {name: string, email: string, groups: string}) => {
+  const response = await useAPI(`companies/employees/${id}`, 'PUT', { name, email, groups })
 
   return response
 }
@@ -123,7 +123,7 @@ export const useRequests = () => ({
   editGroup,
   deleteGroup,
   getEmployees,
-  getAnEmployees,
+  getAnEmployee,
   addEmployee,
   editEmployee,
   deleteEmployee,
