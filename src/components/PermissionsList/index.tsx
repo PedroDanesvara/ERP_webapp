@@ -8,7 +8,7 @@ type Props = {
   setSelectedPermissions: (value: number[]) => void
 }
 
-const PermissionList = ({ permissionsData, selectedPermissions, setSelectedPermissions }: Props) => {
+const PermissionsList = ({ permissionsData, selectedPermissions, setSelectedPermissions }: Props) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>, permission_id: number) => {
     const {checked} = event.target;
 
@@ -37,4 +37,4 @@ const PermissionList = ({ permissionsData, selectedPermissions, setSelectedPermi
   )
 };
 
-export default PermissionList
+export default PermissionsList
