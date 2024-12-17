@@ -1,5 +1,5 @@
-import { ReactNode, useEffect } from "react"
-import { Navigate, useNavigate } from "react-router"
+import { ReactNode } from "react"
+import { Navigate } from "react-router"
 import { useAuth } from "src/utils/auth"
 
 type Props = {
