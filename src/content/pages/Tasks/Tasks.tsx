@@ -1,41 +1,41 @@
 import { Container } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import GroupsTable from "src/components/GroupsTable";
 import PageTitle from "src/components/PageTitle";
 import PageTitleWrapper from "src/components/PageTitleWrapper";
+import TasksTable from "src/components/TasksTable";
 import { PermissionMiddleware } from "src/middlewares/PermissionMiddleware";
-import { GroupDetail } from "src/models/Group";
+import { Task } from "src/models/Task";
 import { useRequests } from "src/utils/requests";
 
-const Groups = () => {
+const Tasks = () => {
   const [requestLoading, setRequestLoading] = useState(true);
-  const [groupsData, setGroupsData] = useState<GroupDetail[]>([]);
+  const [tasksData, setTasksData] = useState<Task[]>([]);
 
-  const { getGroups } = useRequests();
+  const { getTasks } = useRequests();
 
-  const handleGetGroups = async () => {
-    const response = await getGroups();
+  const handleGetTasks = async () => {
+    const response = await getTasks();
 
-    setGroupsData(response.data.groups);
+    setTasksData(response.data.tasks);
     setRequestLoading(false);
   }
 
   useEffect(() => {
-    handleGetGroups();
+    handleGetTasks();
   }, []);
 
   return (
     <>
-      <PermissionMiddleware codeName="view_group">
+      <PermissionMiddleware codeName="view_task">
         <>
           <Helmet>
-            <title>Cargos</title>
+            <title>Tarefas</title>
           </Helmet>
           <PageTitleWrapper>
             <PageTitle
-              heading="Cargos"
-              subHeading="Consulte os cargos da empresa e execute ações"
+              heading="Tarefas"
+              subHeading="Consulte as tarefas da empresa e execute ações"
             />
           </PageTitleWrapper>
         </>
@@ -47,9 +47,9 @@ const Groups = () => {
             transition: "all .5s"
           }}
         >
-          <GroupsTable
-            refreshList={handleGetGroups}
-            groupsList={groupsData}
+          <TasksTable
+            tasksList={tasksData}
+            refreshList={handleGetTasks}
           />
         </Container>
       </PermissionMiddleware>
@@ -57,4 +57,4 @@ const Groups = () => {
   )
 };
 
-export default Groups;
+export default Tasks;
