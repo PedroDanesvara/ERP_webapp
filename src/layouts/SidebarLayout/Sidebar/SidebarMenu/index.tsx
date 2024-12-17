@@ -289,6 +289,17 @@ function SidebarMenu() {
                   Gerenciar
                 </Button>
               </ListItem>
+              <ListItem component="div">
+                <Button
+                  disableRipple
+                  component={RouterLink}
+                  onClick={closeSidebar}
+                  to="/tasks-add"
+                  startIcon={<Group />}
+                >
+                  Adicionar
+                </Button>
+              </ListItem>
             </List>
           </SubMenuWrapper>
         </List>
